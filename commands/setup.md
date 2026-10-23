@@ -27,11 +27,11 @@ Report, from what the server returns and nothing from memory:
 
 If the connector does not answer, it is a sign-in. In Claude Code, run `/mcp` and sign
 in to `adcopilot`. In Claude on the web, in Cowork or in the desktop app, open this
-plugin, then its Connectors tab, and connect `adcopilot` there. The connector is one
-connector with one sign-in, shared with any other AdCopilot plugin the customer has
-added. In Claude Code, `/mcp` shows it once, under whichever AdCopilot plugin loaded
-first. If Claude asks for a sign-in again after an AdCopilot plugin is removed, `/mcp`
-and one sign-in fixes it.
+plugin, then its Connectors tab, and connect `adcopilot` there. There is one
+connector and one AdCopilot account whichever AdCopilot plugins are added. In
+Claude Code, `/mcp` lists it once, under whichever AdCopilot plugin loaded first,
+and the sign-in belongs to that entry. If Claude asks for a sign-in again after an
+AdCopilot plugin was added or removed, run `/mcp` and sign in once.
 
 End with the one next step that fits: the `check` command to check the X Pixel in Tag
 Manager, or the `plan` command to plan a campaign and draft its posts.

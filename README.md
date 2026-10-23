@@ -63,13 +63,11 @@ properties the plugin can see depends on the Google login you connect.
 
 ## Already use another AdCopilot plugin?
 
-One connector, one sign-in, whichever AdCopilot plugins you add. Every AdCopilot
-plugin points at the same connector address. In Claude Code, `/mcp` shows the
-connector once, under whichever AdCopilot plugin loaded first, and Claude Code signs
-in once for that address. In Claude on the web, Cowork and the desktop app, Claude
-matches a plugin's connector to the one on your account by its address, so a
-connector you already connected for another AdCopilot plugin should be recognised
-here. If Claude asks you to sign in again after you remove an AdCopilot plugin, run
+There is one connector and one AdCopilot account, whichever AdCopilot plugins you
+add. Every AdCopilot plugin points at the same address, so your AI client treats
+them as one connector. In Claude Code, `/mcp` shows the connector once, under
+whichever AdCopilot plugin loaded first, and the sign-in belongs to that entry. If
+Claude asks you to sign in again after you add or remove an AdCopilot plugin, run
 `/mcp` and sign in once.
 
 ## What you get

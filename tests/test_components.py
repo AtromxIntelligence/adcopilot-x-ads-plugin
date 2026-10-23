@@ -330,11 +330,12 @@ class Readme(Base):
                         "## What you get", "## What it will not do", "## Data",
                         "## Support", "## Version", "## Licence", "## What CI runs"):
             self.assertHas("\n" + heading + "\n", self.text, heading)
-        self.assertHas("One connector, one sign-in, whichever AdCopilot plugins you add.",
-                      self.flat)
+        self.assertHas("There is one connector and one AdCopilot account, whichever "
+                      "AdCopilot plugins you add.", self.flat)
         self.assertHas("`/mcp` shows the connector once, under whichever AdCopilot plugin "
-                      "loaded first", self.flat)
-        self.assertHas("run `/mcp` and sign in once", self.flat)
+                      "loaded first, and the sign-in belongs to that entry.", self.flat)
+        self.assertHas("If Claude asks you to sign in again after you add or remove an "
+                      "AdCopilot plugin, run `/mcp` and sign in once.", self.flat)
         self.assertHas(TODAY_LATER, self.flat)
 
     def test_it_holds_the_plans_and_data_sentences(self):
