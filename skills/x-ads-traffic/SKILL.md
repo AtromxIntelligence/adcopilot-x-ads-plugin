@@ -51,8 +51,9 @@ never describe traffic you cannot read.
    nothing: say that. Marking an event is the customer's step in Analytics, and
    this skill does not make it.
 4. `ga4_run_report` with those four dimensions and three metrics, for the dates the
-   customer names. With none named, use the last 28 days (`start_date`
-   `28daysAgo`, `end_date` `today`) and say so. The tool has no filter, so choose
+   customer names. With none named, use the last 28 whole days (`start_date`
+   `28daysAgo`, `end_date` `yesterday`, Analytics's own relative dates, which the
+   tool passes to Analytics as written) and say so. The tool has no filter, so choose
    the X rows yourself from the rows it returns: a source of `t.co`, `x.com`,
    `twitter.com`, `twitter` or `x` (ignore capital letters), and any source or
    campaign the customer says they use for X. Compare the report's `rowCount` with

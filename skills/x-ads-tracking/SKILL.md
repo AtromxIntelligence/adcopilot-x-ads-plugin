@@ -45,9 +45,9 @@ From X's help page "Conversion tracking for websites", checked 23 October 2026:
   event code records one action, such as a purchase or a lead, and needs the base
   code on the page.
 - The base code loads `https://static.ads-twitter.com/uwt.js`, defines a function
-  called `twq`, and calls `twq('config', '<pixel id>')`. X redirects the older
-  address `platform.twitter.com/uwt.js` to the same file, so a tag that loads
-  either is X's base code.
+  called `twq`, and calls `twq('config', '<pixel id>')`. The older address
+  `platform.twitter.com/uwt.js` redirects to the same file (checked 23 October
+  2026), so a tag that loads either is X's base code.
 - Event code looks like `twq('event', 'tw-<pixel id>-<event id>', { ... })`, with
   optional parameters such as value and currency.
 - An event can also be defined in X's Events Manager by URL rules, with no event
@@ -110,7 +110,8 @@ proof, from X's help page, checked 23 October 2026, and at the time of writing:
   event's status: Active (activity in the last 24 hours), Inactive, or No recent
   activity. The base code's own events, "Site Visit" and "Landing Page View", are
   created for it. The status moves only after someone visits a tagged page. X
-  says a missing Tools tab usually means no card has been added to the account.
+  says a missing Tools tab usually means no credit card has been added to the
+  ads account.
 - In Events Manager, an event's menu has View Activity, a Recent Activity Log
   with a sample of the data X received, the parameters sent and the host name of
   the site that sent them.
@@ -133,16 +134,21 @@ Staging a tag is a change, so it follows the rule at the end of this skill.
   inline code, say what and do not stage it: send the customer back to Events
   Manager for the code.
 - Propose, in plain words. For the base code: one Custom HTML tag named "X Pixel
-  base code" with the pixel id, firing on All Pages. For an event: one Page View
-  trigger on the thank-you page, with the page path the customer names, and one
-  Custom HTML tag with the event code on that trigger. Say that both are staged
+  base code" with the pixel id, firing on All Pages. For an event: one DOM Ready
+  trigger (type `domReady`) on the thank-you page, with the page path the
+  customer names, and one Custom HTML tag with the event code on that trigger.
+  DOM Ready comes after Page View in Tag Manager, so the base code on All Pages
+  has defined `twq` before the event code runs; a Page View trigger would race
+  it. If the base tag fires later than Page View, say so and ask before you
+  propose the trigger. Say that both are staged
   in a workspace named AdCopilot, that nothing fires until the customer reviews
   and publishes it in Tag Manager (Submit, then Publish, at the time of writing),
   and that to undo it they leave it unpublished or delete it in that workspace.
-- A Page View filter reads Tag Manager's Page Path variable, and a filter on a
-  variable that is off matches nothing, so the tag never fires and says nothing.
-  Read `gtm_list_built_in_variables` first. If Page Path is not enabled, include
-  `gtm_enable_built_in_variable` for it in the same proposal.
+- The trigger's filter reads Tag Manager's built-in Page Path variable, which
+  must be enabled in the workspace for the filter to work. Read
+  `gtm_list_built_in_variables` first, for the workspace named AdCopilot if
+  there is one, or else the Default Workspace. If Page Path is not enabled,
+  include `gtm_enable_built_in_variable` for it in the same proposal.
 - On their yes, make the trigger first with `gtm_create_trigger`, then the tag
   with `gtm_create_tag`: type `html`, the pasted code in the parameter `html`, the
   trigger's id as its firing trigger. If the container already has a Custom HTML
