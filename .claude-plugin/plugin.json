@@ -1,0 +1,35 @@
+{
+  "name": "adcopilot-x-ads",
+  "version": "0.1.0",
+  "description": "X Ads (Twitter Ads) help in your AI client, through AdCopilot. Today it checks your X Pixel in Google Tag Manager, reports X traffic and conversions in Google Analytics (GA4) by source, medium and campaign, finds UTM mistakes, guides conversion setup, plans campaigns, drafts promoted-post copy and does the budget pacing math. Direct access to your X ad account comes when X approves AdCopilot's API access; there is no date yet. Every change is proposed first and made only on your yes. Made by Atromx Intelligence, not by X.",
+  "author": {
+    "name": "Atromx Intelligence",
+    "url": "https://adcopilot.cloud"
+  },
+  "homepage": "https://adcopilot.cloud",
+  "documentationUrl": "https://adcopilot.cloud/docs/",
+  "privacyPolicyUrl": "https://adcopilot.cloud/privacy",
+  "termsOfServiceUrl": "https://adcopilot.cloud/terms",
+  "supportUrl": "https://github.com/AtromxIntelligence/adcopilot-x-ads-plugin/issues",
+  "repository": "https://github.com/AtromxIntelligence/adcopilot-x-ads-plugin",
+  "license": "MIT",
+  "keywords": [
+    "x-ads",
+    "twitter-ads",
+    "x-pixel",
+    "twitter-pixel",
+    "promoted-posts",
+    "paid-social",
+    "conversions",
+    "utm",
+    "google-analytics",
+    "ga4",
+    "google-tag-manager",
+    "ad-copy",
+    "campaign-planning",
+    "budget-pacing",
+    "adcopilot"
+  ],
+  "displayName": "AdCopilot for X Ads (Twitter Ads)",
+  "icon": "./.claude-plugin/icon.png"
+}

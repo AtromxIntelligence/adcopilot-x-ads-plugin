@@ -1,0 +1,16 @@
+{
+  "name": "adcopilot-x-ads-plugin",
+  "description": "AdCopilot for X Ads (Twitter Ads): X Pixel checks in Google Tag Manager, X traffic and conversions in Google Analytics (GA4), campaign plans, post copy and budget pacing math. Made by Atromx Intelligence, not by X.",
+  "owner": {
+    "name": "Atromx Intelligence",
+    "url": "https://adcopilot.cloud"
+  },
+  "plugins": [
+    {
+      "name": "adcopilot-x-ads",
+      "source": "./",
+      "description": "X Pixel checks in Google Tag Manager, X traffic and conversions in Google Analytics (GA4), UTM checks, conversion setup guidance, campaign plans, post copy and budget pacing math. Direct X ad-account access comes when X approves AdCopilot's API access; no date yet.",
+      "category": "Marketing"
+    }
+  ]
+}
