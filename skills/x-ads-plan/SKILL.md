@@ -15,11 +15,11 @@ account, and nothing here says how any X campaign performed.
 Open your first answer in this conversation with this, in these words, once. Do
 not repeat it in later answers.
 
-> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account: direct access to it comes when X approves AdCopilot's API access, and there is no date yet.
+> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.0"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"` first,
 before any other tool, and read only what its saved `profile` says about the
 customer's business: what they sell, where, and to whom. Send `source` exactly as
 written. In a scheduled run (a Claude scheduled task or routine with nobody there

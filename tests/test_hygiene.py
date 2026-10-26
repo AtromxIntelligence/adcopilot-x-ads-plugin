@@ -172,6 +172,60 @@ class Promises(unittest.TestCase):
         self.assertIn("Made by Atromx Intelligence, not by X.", text)
 
 
+# Words that read as a claim about a relationship with X: an approval, a
+# partnership, an access level, an app or an integration. The plugin makes none of
+# these claims. Every pattern is built from pieces, so this file never matches itself.
+X_RELATIONSHIP_PATTERNS = [
+    r"(?i)\bapproved\s+by\s+X\b",
+    r"(?i)\bX\s+partners?\b",
+    r"(?i)\bAds\s+API\b",
+    r"(?i)\bStandard\s+access\b",
+    "3357" + "2174",
+    r"(?i)\bintegration\s+with\s+X\b",
+    r"(?i)\bwhen\s+X\s+approves\b",
+    r"(?i)\bX\s+approves\b",
+    r"(?i)\bapproval\s+(?:from|by)\s+X\b",
+    r"(?i)\bX['\u2019]s\s+approval\b",
+]
+
+
+class NoXRelationshipWords(unittest.TestCase):
+
+    def test_no_file_says_x_approved_partnered_or_gave_access(self):
+        # Every text file, the tests and the CI files included.
+        for p in text_files():
+            text = " ".join(read(p).split())
+            for pattern in X_RELATIONSHIP_PATTERNS:
+                hit = re.search(pattern, text)
+                with self.subTest(file=str(p), pattern=pattern):
+                    self.assertIsNone(hit, hit and hit.group(0))
+
+    def test_the_ban_catches_the_ways_it_is_said_and_leaves_the_plain_sentences(self):
+        # The phrases are built at run time, so this file carries none of them.
+        caught = [
+            "approved by {o}", "{o} partner", "{o} partners", "Ads " + "API",
+            "Standard " + "access", "3357" + "2174", "integration with {o}",
+            "when {o} approves", "{o} approves", "approval from {o}",
+            "approval by {o}", "{o}'s approval", "{o}\u2019s approval",
+        ]
+        passed = [
+            "It does not read your {o} ad account.",
+            "Not affiliated with or endorsed by {o} Corp.",
+            "Made by Atromx Intelligence, not by {o}.",
+            "the {o} Pixel and the Conversion API",
+            "your Google products through Google's APIs",
+        ]
+
+        def matched(phrase):
+            return [p for p in X_RELATIONSHIP_PATTERNS
+                    if re.search(p, phrase.format(o="X"))]
+
+        for phrase in caught:
+            self.assertNotEqual(matched(phrase), [], phrase)
+        for phrase in passed:
+            self.assertEqual(matched(phrase), [], phrase)
+
+
 class Commits(unittest.TestCase):
 
     def commits(self):

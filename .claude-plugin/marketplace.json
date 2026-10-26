@@ -9,7 +9,7 @@
     {
       "name": "adcopilot-x-ads",
       "source": "./",
-      "description": "X Pixel checks in Google Tag Manager, X traffic and conversions in Google Analytics (GA4), UTM checks, conversion setup guidance, campaign plans, post copy and budget pacing math. Direct X ad-account access comes when X approves AdCopilot's API access; no date yet.",
+      "description": "X Pixel checks in Google Tag Manager, X traffic and conversions in Google Analytics (GA4), UTM checks, conversion setup guidance, campaign plans, post copy and budget pacing math. It does not read your X ad account.",
       "category": "Marketing"
     }
   ]

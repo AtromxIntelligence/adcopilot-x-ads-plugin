@@ -15,7 +15,7 @@ no AdCopilot tool at all.
 Open your first answer in this conversation with this, in these words, once. Do
 not repeat it in later answers.
 
-> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account: direct access to it comes when X approves AdCopilot's API access, and there is no date yet.
+> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
 
 ## Ask for the figures
 

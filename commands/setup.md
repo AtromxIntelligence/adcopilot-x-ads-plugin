@@ -5,9 +5,9 @@ description: Check the AdCopilot connector is signed in, say which Google produc
 
 Open your first answer with this, in these words, once:
 
-> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account: direct access to it comes when X approves AdCopilot's API access, and there is no date yet.
+> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
 
-Then call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.0"`, before
+Then call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"`, before
 any other tool. Send `source` exactly as written. In a scheduled run send
 `source: "claude-scheduled"` instead, read only, and change nothing.
 

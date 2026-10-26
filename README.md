@@ -36,12 +36,10 @@ Made by Atromx Intelligence (https://adcopilot.cloud). Not affiliated with or en
 
 Every skill and command opens with this, once:
 
-> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account: direct access to it comes when X approves AdCopilot's API access, and there is no date yet.
+> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
 
-Reading your X ad account is not here, and nothing in this plugin pretends it is. It
-depends on X's decision, which is not ours to promise, and there is no date. When it
-comes, a plugin update will add an X connection next to the AdCopilot one, with its
-own sign-in.
+Reading your X ad account is not part of this plugin, and nothing in it pretends
+otherwise.
 
 ## Plans
 
@@ -105,6 +103,8 @@ Open an issue at https://github.com/AtromxIntelligence/adcopilot-x-ads-plugin/is
 or write to support@adcopilot.cloud.
 
 ## Version
+
+**0.1.1 (2026-10-26, written against AdCopilot v2.44.0, live since 2026-10-22)**: text only. The sentence about your X ad account, which every skill and command opens with, now says only: it does not read your X ad account. The skills, the commands, the tools they name and the connector are as in 0.1.0.
 
 **0.1.0 (2026-10-23, written against AdCopilot v2.44.0, live since 2026-10-22)**: the first release. Three commands and four skills for X Ads: the X Pixel check and staging in Google Tag Manager, X traffic and key events in Google Analytics (GA4) with UTM checks, campaign plans and post drafts, and budget pacing math. It reads no X ad account. X's help pages were checked on 23 October 2026.
 

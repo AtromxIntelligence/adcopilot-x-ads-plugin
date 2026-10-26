@@ -98,7 +98,7 @@ class PluginJson(unittest.TestCase):
         self.assertTrue(d.endswith("Made by Atromx Intelligence, not by %s." % OWNER_NAME), d[-60:])
         # The platform plugins say plainly what works today and what does not.
         self.assertIn("Today it", d)
-        self.assertIn("there is no date yet", d)
+        self.assertIn("It does not read your X ad account.", d)
         self.assertIn("proposed first and made only on your yes", d)
 
     def test_icon_is_a_png_and_is_the_adcopilot_mark(self):
