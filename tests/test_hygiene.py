@@ -251,6 +251,18 @@ class Commits(unittest.TestCase):
             self.skipTest("no commits yet")
         return entries
 
+    def test_no_commit_is_a_merge(self):
+        # Only a fast-forward keeps every commit on main ours. A merge made with
+        # the merge button carries the account holder's name, and its message
+        # names the branch, which can read as a closing keyword.
+        self.commits()
+        try:
+            out = subprocess.run(["git", "rev-list", "--merges", "HEAD"], cwd=ROOT,
+                                 capture_output=True, text=True, check=True).stdout
+        except (OSError, subprocess.CalledProcessError):
+            self.skipTest("not a Git checkout")
+        self.assertEqual(out.split(), [], "merge commits: " + " ".join(out.split()))
+
     def test_every_commit_is_by_atromx_intelligence(self):
         who = "Atromx Intelligence <support@atromx.com>"
         for entry in self.commits():

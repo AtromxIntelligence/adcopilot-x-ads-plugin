@@ -23,6 +23,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # On a pull request, test the pushed head and not the merge commit that
+          # GitHub makes in the name of the person who opened it, which is never
+          # pushed and would fail the commit-identity test. A push to main tests
+          # the commit that was pushed.
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           # The version-against-tag check reads tags, which a shallow
           # checkout does not fetch.
           fetch-depth: 0
