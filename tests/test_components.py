@@ -37,8 +37,7 @@ TODAY_LATER = (
     "Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X "
     "traffic and key events in Google Analytics (GA4), checks UTM tags, guides "
     "conversion setup, plans campaigns, drafts post copy and does the budget pacing "
-    "math. It does not read your X ad account: direct access to it comes when X "
-    "approves AdCopilot's API access, and there is no date yet.")
+    "math. It does not read your X ad account.")
 APPROVAL = (
     "Every change is proposed first, with what it changes and how to undo it, and is "
     "applied only after the customer's explicit yes in this conversation.")
@@ -325,7 +324,7 @@ class Readme(Base):
         self.assertGreater(words, 40)
 
     def test_it_holds_the_sections_and_the_connector_paragraph(self):
-        for heading in ("## What it does today", "## What comes later", "## Plans",
+        for heading in ("## What it does today", "## What it does not read", "## Plans",
                         "## Install", "## Already use another AdCopilot plugin?",
                         "## What you get", "## What it will not do", "## Data",
                         "## Support", "## Version", "## Licence", "## What CI runs"):

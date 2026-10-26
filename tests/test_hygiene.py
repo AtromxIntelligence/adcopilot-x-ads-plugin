@@ -10,9 +10,10 @@ security scan hold a version for review, or fail it, when it:
   or a Git LFS pointer, or a bundle (.mcpb, .dxt);
 * names itself or its publisher so that it reads as another company's product.
 
-This file also holds three promises of ours: no price figure beyond the one
+This file also holds four promises of ours: no price figure beyond the one
 sentence the README is allowed, no word that calls the plugin the platform's own,
-and no commit that carries a co-author trailer or a closing keyword.
+no wording that claims a relationship with X, and no commit that carries a
+co-author trailer or a closing keyword.
 
 The patterns are built by concatenation, so this file never matches itself. It
 reads no environment variable. Stdlib only; run with
@@ -170,6 +171,70 @@ class Promises(unittest.TestCase):
     def test_the_description_says_who_made_it(self):
         text = read(".claude-plugin/plugin.json")
         self.assertIn("Made by Atromx Intelligence, not by X.", text)
+
+
+# Words that read as a claim of a relationship with X. The plugin makes no such
+# claim. The patterns are generic, and the phrases they must catch are built from
+# pieces, so this file never matches itself.
+X_RELATIONSHIP_PATTERNS = [
+    r"(?i)\bapproved\s+by\s+X\b",
+    r"(?i)\bX\s+partners?\b",
+    r"(?i)\bpartnership\b",
+    r"(?i)\bAds\s+API\b",
+    r"(?i)\bAPI\s+access\b",
+    r"(?i)\bX(?:['\u2019]s)?(?:\s+Ads)?\s+API\b",
+    r"(?i)\bX(?:\s+Ads)?\s+integration\b",
+    r"(?i)\bintegration\s+with\s+X\b",
+    r"(?i)\bX\s+(?:has\s+)?(?:approved|granted)\b",
+    r"(?i)\bX\s+approves\b",
+    r"(?i)\bapproval\s+(?:from|by)\s+X\b",
+    r"(?i)\bX['\u2019]s\s+approval\b",
+    r"(?i)\bcom(?:es|ing)\s+(?:when|soon|later)\b",
+]
+
+
+class NoXRelationshipWords(unittest.TestCase):
+
+    def test_no_file_says_x_approved_partnered_or_integrated(self):
+        # Every text file, the tests and the CI files included.
+        for p in text_files():
+            text = " ".join(read(p).split())
+            for pattern in X_RELATIONSHIP_PATTERNS:
+                hit = re.search(pattern, text)
+                with self.subTest(file=str(p), pattern=pattern):
+                    self.assertIsNone(hit, hit and hit.group(0))
+
+    def test_the_ban_catches_the_ways_it_is_said_and_leaves_the_plain_sentences(self):
+        # The phrases are built at run time, so this file carries none of them.
+        caught = [
+            "approved by {o}", "{o} partner", "{o} partners", "{o} part" + "nership",
+            "part" + "nership with {o}", "Ads " + "API", "API " + "access",
+            "API " + "access from {o}", "{o} API", "{o}'s API", "{o}\u2019s API",
+            "{o} Ads " + "API", "{o} integration", "the {o} Ads integration",
+            "integration with {o}", "{o} approved our API " + "access",
+            "{o} has approved AdCopilot", "{o} granted API " + "access",
+            "{o} approves", "when {o} approves", "approval from {o}",
+            "approval by {o}", "{o}'s approval", "{o}\u2019s approval",
+            "com" + "es when {o} replies", "com" + "ing soon", "what com" + "es later",
+        ]
+        passed = [
+            "It does not read your {o} ad account.",
+            "Not affiliated with or endorsed by {o} Corp.",
+            "Made by Atromx Intelligence, not by {o}.",
+            "the {o} Pixel and the Conversion API",
+            "{o} offers a second route, the Conversion API.",
+            "Set up {o}'s server-side Conversion API.",
+            "your Google products through Google's APIs",
+        ]
+
+        def matched(phrase):
+            return [p for p in X_RELATIONSHIP_PATTERNS
+                    if re.search(p, phrase.format(o="X"))]
+
+        for phrase in caught:
+            self.assertNotEqual(matched(phrase), [], phrase)
+        for phrase in passed:
+            self.assertEqual(matched(phrase), [], phrase)
 
 
 class Commits(unittest.TestCase):
