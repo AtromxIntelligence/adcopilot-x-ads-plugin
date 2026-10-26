@@ -229,10 +229,12 @@ class NoXRelationshipWords(unittest.TestCase):
 class Commits(unittest.TestCase):
 
     def commits(self):
+        # Real commits only. On a pull request the checkout is a merge commit that
+        # GitHub makes in the name of the person who opened it; it is never pushed.
         try:
             out = subprocess.run(
-                ["git", "log", "--format=%an <%ae>|%cn <%ce>|%B%x00"], cwd=ROOT,
-                capture_output=True, text=True, check=True).stdout
+                ["git", "log", "--no-merges", "--format=%an <%ae>|%cn <%ce>|%B%x00"],
+                cwd=ROOT, capture_output=True, text=True, check=True).stdout
         except (OSError, subprocess.CalledProcessError):
             self.skipTest("not a Git checkout")
         entries = [e for e in out.split("\0") if e.strip()]
