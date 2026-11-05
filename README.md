@@ -38,9 +38,9 @@ Every skill and command opens with this, once:
 
 > Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
 
-## Plans
+## The connector
 
-The plugin is free (MIT). The AdCopilot connector is a hosted service: Free plan available; paid plans on https://adcopilot.cloud/pricing
+The plugin is MIT licensed. The AdCopilot connector it brings is a hosted service, so you need an AdCopilot account to use it.
 
 ## Install
 
@@ -94,12 +94,23 @@ you chose to install it. The links in this plugin's answers to X's and Google's 
 pages are for you to read. Privacy policy: https://adcopilot.cloud/privacy. Terms:
 https://adcopilot.cloud/terms. Documentation: https://adcopilot.cloud/docs/.
 
+## Example prompts
+
+After you sign in, ask in your own words. For example:
+
+- "Check whether my X Pixel is installed in Google Tag Manager, and what fires it."
+- "How much X traffic reached my site last month, and how many key events did it bring in Google Analytics?"
+- "Find the UTM mistakes in my X traffic, such as t.co rows with no campaign."
+- "Plan an X Ads campaign for my business and draft the promoted-post copy."
+
 ## Support
 
 Open an issue at https://github.com/AtromxIntelligence/adcopilot-x-ads-plugin/issues,
 or write to support@adcopilot.cloud.
 
 ## Version
+
+**0.1.2 (2026-11-05)**: changes nothing you use. The plugin folder now holds only the files Claude loads.
 
 **0.1.1 (2026-10-26, written against AdCopilot v2.44.0, live since 2026-10-22)**: text only. The sentence about your X ad account, which every skill and command opens with, now says only: it does not read your X ad account. The skills, the commands, the tools they name and the connector are as in 0.1.0.
 
@@ -108,9 +119,3 @@ or write to support@adcopilot.cloud.
 ## Licence
 
 MIT. See the LICENSE file.
-
-## What CI runs
-
-Two GitHub Actions workflows run on every push to main and every pull request, and neither holds a secret. `checks` installs Claude Code at a pinned version from npm, runs plugin validation in strict mode on the plugin folder and its manifest, parses the three JSON files, checks that every skill and command has a name and a description, runs the plugin's tests, looks for a download-and-execute pattern anywhere in the repository, and checks that the manifest version is not behind the latest tag. `leak-check` runs gitleaks over every commit, from an image pinned by digest.
-
-The tests use only the Python standard library and read no environment variable. Run them from the repository root with `python3 -m unittest discover -s tests -v`.

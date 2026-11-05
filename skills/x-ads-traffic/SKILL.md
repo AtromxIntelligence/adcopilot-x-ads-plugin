@@ -20,7 +20,7 @@ not repeat it in later answers.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
 before any other tool. Send `source` exactly as written. In a scheduled run (a
 Claude scheduled task or routine with nobody there to answer; this plugin
 schedules nothing, but one may exist) send `source: "claude-scheduled"` instead,

@@ -21,7 +21,7 @@ not repeat it in later answers.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
 before any other tool. Send `source` exactly as written. In a scheduled run (a
 Claude scheduled task or routine with nobody there to answer; this plugin
 schedules nothing, but one may exist) send `source: "claude-scheduled"` instead,
@@ -45,11 +45,11 @@ From X's help page "Conversion tracking for websites", checked 23 October 2026:
   event code records one action, such as a purchase or a lead, and needs the base
   code on the page.
 - The base code loads `https://static.ads-twitter.com/uwt.js`, defines a function
-  called `twq`, and calls `twq('config', '<pixel id>')`. The older address
+  called `twq`, and calls it with `config` and the pixel id. The older address
   `platform.twitter.com/uwt.js` redirects to the same file (checked 23 October
   2026), so a tag that loads either is X's base code.
-- Event code looks like `twq('event', 'tw-<pixel id>-<event id>', { ... })`, with
-  optional parameters such as value and currency.
+- Event code calls `twq` with `event`, an event id of the form
+  `tw-<pixel id>-<event id>`, and optional parameters such as value and currency.
 - An event can also be defined in X's Events Manager by URL rules, with no event
   code at all. A site with no event tags may still have events, and this check
   cannot see them.
@@ -89,7 +89,7 @@ server returned them), and never a number or a name you did not read:
   All Pages (id 2147479573) does. For a trigger of the customer's own, read its
   type and its filter and say what it does. A tag with no firing trigger does not
   fire on its own, and a tag marked paused does not fire either, if the tag shows it.
-- **Event tags.** For each Custom HTML tag with `twq('event', 'tw-...` code: the
+- **Event tags.** For each Custom HTML tag whose code calls `twq` with `event` and an event id: the
   event id, the pixel id, and the trigger. An event tag whose pixel id differs
   from the base tag's is a mismatch. An event tag with no base tag in the
   container is a gap: X's event code needs the base code on the page.

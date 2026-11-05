@@ -19,7 +19,7 @@ not repeat it in later answers.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
 before any other tool, and read only what its saved `profile` says about the
 customer's business: what they sell, where, and to whom. Send `source` exactly as
 written. In a scheduled run (a Claude scheduled task or routine with nobody there
