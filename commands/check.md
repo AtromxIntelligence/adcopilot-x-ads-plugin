@@ -1,5 +1,4 @@
 ---
-name: check
 description: Check the X Pixel in Google Tag Manager and name the proof that it fires.
 ---
 

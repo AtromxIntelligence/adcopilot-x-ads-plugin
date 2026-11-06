@@ -1,5 +1,4 @@
 ---
-name: plan
 description: Plan an X Ads campaign and draft its promoted-post copy.
 ---
 

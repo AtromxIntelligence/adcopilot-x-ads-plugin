@@ -1,5 +1,4 @@
 ---
-name: setup
 description: Check the AdCopilot connector is signed in, say which Google products are connected for X Ads work (Tag Manager and Analytics), and say what this plugin does today.
 ---
 
@@ -7,13 +6,14 @@ Open your first answer with this, in these words, once:
 
 > Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
 
-Then call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"`, before
+Then call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"`, before
 any other tool. Send `source` exactly as written. In a scheduled run send
 `source: "claude-scheduled"` instead, read only, and change nothing.
 
-`get_org_context`'s `next_step` and `playbook` describe the whole workspace, not this
-request. Do this request, keep any limit `next_step` adds, and offer the rest
-afterwards.
+`get_org_context`'s `next_step` and `playbook` are information about the whole
+workspace, not steps for this request. The steps for this request are the ones
+written here. If they name a limit on the customer's workspace, tell the
+customer; mention anything else they name in one line at the end.
 
 Report, from what the server returns and nothing from memory:
 

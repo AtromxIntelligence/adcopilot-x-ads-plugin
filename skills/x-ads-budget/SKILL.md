@@ -1,6 +1,6 @@
 ---
 name: x-ads-budget
-description: Work out budget pacing for an X Ads (Twitter Ads) campaign from the customer's own figures, giving the projected spend, the daily amount that lands on budget and whether spend is over or under pace. Claude does the math itself and AdCopilot reads no X data for it. Use when the user asks about X ads budget, pacing, whether they are overspending or underspending on X, how much to spend per day, or what a month of X ads will cost.
+description: Work out budget pacing for an X Ads (Twitter Ads) campaign from the customer's own figures, giving the projected spend, the daily amount that lands on budget and whether spend is over or under pace. Claude does the math itself and AdCopilot reads no X data for it. Use when the user asks about their X Ads or Twitter Ads budget or pacing, whether they are overspending or underspending on X, how much to spend per day on X, or what a month of X ads will cost.
 ---
 
 # X Ads budget pacing

@@ -1,6 +1,6 @@
 ---
 name: x-ads-tracking
-description: Check whether the X Pixel, the tag behind X Ads (Twitter Ads) conversion tracking, is set up in Google Tag Manager, name the proof that it fires, and stage the tag when the customer pastes X's code. Use when the user asks about the X Pixel, the Twitter pixel, X Ads or Twitter Ads conversion tracking, Events Manager, uwt.js, twq, X base code or event code, or whether their X tag fires.
+description: Check through AdCopilot whether the X Pixel, the tag behind X Ads (Twitter Ads) conversion tracking, is set up in Google Tag Manager, name the proof that it fires, and stage the tag when the customer pastes X's code. Use when the user asks about the X Pixel, the Twitter pixel, X Ads or Twitter Ads conversion tracking, X's Events Manager, uwt.js, twq, X base code or event code, or whether their X tag fires.
 ---
 
 # X Pixel check in Tag Manager
@@ -21,15 +21,16 @@ not repeat it in later answers.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
 before any other tool. Send `source` exactly as written. In a scheduled run (a
 Claude scheduled task or routine with nobody there to answer; this plugin
 schedules nothing, but one may exist) send `source: "claude-scheduled"` instead,
 read only, and change nothing.
 
-`get_org_context`'s `next_step` and `playbook` describe the whole workspace, not
-this request. Do this request, keep any limit `next_step` adds, and offer the rest
-afterwards.
+`get_org_context`'s `next_step` and `playbook` are information about the whole
+workspace, not steps for this request. The steps for this request are the ones
+written here. If they name a limit on the customer's workspace, tell the
+customer; mention anything else they name in one line at the end.
 
 If the card for Google Tag Manager under `products` is not connected, say what
 connecting it unlocks, in the server's own words (its `unlocks`), give its
@@ -45,11 +46,11 @@ From X's help page "Conversion tracking for websites", checked 23 October 2026:
   event code records one action, such as a purchase or a lead, and needs the base
   code on the page.
 - The base code loads `https://static.ads-twitter.com/uwt.js`, defines a function
-  called `twq`, and calls `twq('config', '<pixel id>')`. The older address
+  called `twq`, and calls it with `config` and the pixel id. The older address
   `platform.twitter.com/uwt.js` redirects to the same file (checked 23 October
   2026), so a tag that loads either is X's base code.
-- Event code looks like `twq('event', 'tw-<pixel id>-<event id>', { ... })`, with
-  optional parameters such as value and currency.
+- Event code calls `twq` with `event`, an event id of the form
+  `tw-<pixel id>-<event id>`, and optional parameters such as value and currency.
 - An event can also be defined in X's Events Manager by URL rules, with no event
   code at all. A site with no event tags may still have events, and this check
   cannot see them.
@@ -89,7 +90,7 @@ server returned them), and never a number or a name you did not read:
   All Pages (id 2147479573) does. For a trigger of the customer's own, read its
   type and its filter and say what it does. A tag with no firing trigger does not
   fire on its own, and a tag marked paused does not fire either, if the tag shows it.
-- **Event tags.** For each Custom HTML tag with `twq('event', 'tw-...` code: the
+- **Event tags.** For each Custom HTML tag whose code calls `twq` with `event` and an event id: the
   event id, the pixel id, and the trigger. An event tag whose pixel id differs
   from the base tag's is a mismatch. An event tag with no base tag in the
   container is a gap: X's event code needs the base code on the page.
@@ -162,7 +163,7 @@ Staging a tag is a change, so it follows the rule at the end of this skill.
 - Tell the customer the tag fires wherever its trigger does. If the site asks
   visitors for consent before advertising tags, their consent setup decides, and
   AdCopilot does not read it.
-- Never publish, and never delete: there is no tool for either.
+- Never publish, and never delete: the connector has no Tag Manager tool for either.
 
 ## Conversion event setup, in X's steps
 

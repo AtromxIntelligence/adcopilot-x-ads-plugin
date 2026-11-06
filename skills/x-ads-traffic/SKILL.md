@@ -1,6 +1,6 @@
 ---
 name: x-ads-traffic
-description: Read X (Twitter) traffic and key events in Google Analytics (GA4) by source, medium and campaign, and find UTM mistakes in the links that send people from X. Use when the user asks how X Ads or Twitter Ads traffic did in Analytics, how many visits or conversions came from X or Twitter, why t.co shows up in their sources, which X campaign worked, or whether their UTM tags are right.
+description: Read X (Twitter) traffic and key events in Google Analytics (GA4) through AdCopilot, by source, medium and campaign, and find UTM mistakes in the links that send people from X. Use when the user asks how X Ads or Twitter Ads traffic did in Analytics, how many visits or conversions came from X or Twitter, why t.co shows up in their sources, which X campaign worked, or whether the UTM tags on their X links are right.
 ---
 
 # X traffic in Google Analytics
@@ -20,15 +20,16 @@ not repeat it in later answers.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
 before any other tool. Send `source` exactly as written. In a scheduled run (a
 Claude scheduled task or routine with nobody there to answer; this plugin
 schedules nothing, but one may exist) send `source: "claude-scheduled"` instead,
 read only, and change nothing.
 
-`get_org_context`'s `next_step` and `playbook` describe the whole workspace, not
-this request. Do this request, keep any limit `next_step` adds, and offer the rest
-afterwards.
+`get_org_context`'s `next_step` and `playbook` are information about the whole
+workspace, not steps for this request. The steps for this request are the ones
+written here. If they name a limit on the customer's workspace, tell the
+customer; mention anything else they name in one line at the end.
 
 If the card for Google Analytics 4 under `products` is not connected, say what
 connecting it unlocks, in the server's own words (its `unlocks`), give its

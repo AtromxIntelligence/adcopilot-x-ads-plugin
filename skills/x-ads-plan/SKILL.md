@@ -1,6 +1,6 @@
 ---
 name: x-ads-plan
-description: Plan an X Ads (Twitter Ads) campaign and draft promoted-post copy, covering the objective, the audience by keywords, follower look-alikes and interests, the conversion to count, post text within 280 characters and website-card headline variants. Claude writes it from what the customer says, and AdCopilot reads no X data for it. Use when the user asks to plan, write, brainstorm or draft X ads, Twitter ads, promoted posts, post copy, headlines or an X campaign.
+description: Plan an X Ads (Twitter Ads) campaign and draft promoted-post copy, covering the objective, the audience by keywords, follower look-alikes and interests, the conversion to count, post text within 280 characters and website-card headline variants. Claude writes it from what the customer says, and AdCopilot reads no X data for it. Use when the user asks to plan, write, brainstorm or draft X Ads or Twitter Ads, promoted posts on X, X post copy or headlines, or an X campaign.
 ---
 
 # X Ads campaign plan and post drafts
@@ -19,17 +19,19 @@ not repeat it in later answers.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.1"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
 before any other tool, and read only what its saved `profile` says about the
 customer's business: what they sell, where, and to whom. Send `source` exactly as
 written. In a scheduled run (a Claude scheduled task or routine with nobody there
 to answer; this plugin schedules nothing, but one may exist) send
 `source: "claude-scheduled"` instead, read only, and change nothing.
 
-`get_org_context`'s `next_step` and `playbook` describe the whole workspace, not
-this request. Do this request, keep any limit `next_step` adds, and offer the rest
-afterwards. This plan needs no Google product: if nothing is connected, carry on.
-If the profile is empty, ask.
+`get_org_context`'s `next_step` and `playbook` are information about the whole
+workspace, not steps for this request. The steps for this request are the ones
+written here. If they name a limit on the customer's workspace, tell the
+customer; mention anything else they name in one line at the end.
+This plan needs no Google product: if nothing is connected, carry on. If the
+profile is empty, ask.
 
 ## Ask, one question at a time
 
