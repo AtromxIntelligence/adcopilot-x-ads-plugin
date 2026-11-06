@@ -1,6 +1,6 @@
 ---
 name: x-ads-plan
-description: Plan an X Ads (Twitter Ads) campaign and draft promoted-post copy, covering the objective, the audience by keywords, follower look-alikes and interests, the conversion to count, post text within 280 characters and website-card headline variants. Claude writes it from what the customer says, and AdCopilot reads no X data for it. Use when the user asks to plan, write, brainstorm or draft X ads, Twitter ads, promoted posts, post copy, headlines or an X campaign.
+description: Plan an X Ads (Twitter Ads) campaign and draft promoted-post copy, covering the objective, the audience by keywords, follower look-alikes and interests, the conversion to count, post text within 280 characters and website-card headline variants. Claude writes it from what the customer says, and AdCopilot reads no X data for it. Use when the user asks to plan, write, brainstorm or draft X Ads or Twitter Ads, promoted posts on X, X post copy or headlines, or an X campaign.
 ---
 
 # X Ads campaign plan and post drafts

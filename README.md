@@ -113,7 +113,7 @@ To report a security problem, write to support@adcopilot.cloud rather than openi
 
 ## Version
 
-**0.1.2 (2026-11-05)**: changes nothing you use. The plugin folder now holds only the files Claude loads.
+**0.1.2 (2026-11-05)**: text only. The plugin folder now holds only the files Claude loads. The skills take what AdCopilot suggests doing next as information and keep to their own steps, each skill's description names X Ads and AdCopilot, and this README says where to report a security problem.
 
 **0.1.1 (2026-10-26, written against AdCopilot v2.44.0, live since 2026-10-22)**: text only. The sentence about your X ad account, which every skill and command opens with, now says only: it does not read your X ad account. The skills, the commands, the tools they name and the connector are as in 0.1.0.
 

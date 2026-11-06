@@ -1,6 +1,6 @@
 ---
 name: x-ads-traffic
-description: Read X (Twitter) traffic and key events in Google Analytics (GA4) by source, medium and campaign, and find UTM mistakes in the links that send people from X. Use when the user asks how X Ads or Twitter Ads traffic did in Analytics, how many visits or conversions came from X or Twitter, why t.co shows up in their sources, which X campaign worked, or whether their UTM tags are right.
+description: Read X (Twitter) traffic and key events in Google Analytics (GA4) through AdCopilot, by source, medium and campaign, and find UTM mistakes in the links that send people from X. Use when the user asks how X Ads or Twitter Ads traffic did in Analytics, how many visits or conversions came from X or Twitter, why t.co shows up in their sources, which X campaign worked, or whether the UTM tags on their X links are right.
 ---
 
 # X traffic in Google Analytics

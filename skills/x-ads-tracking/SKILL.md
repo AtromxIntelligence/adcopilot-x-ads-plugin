@@ -1,6 +1,6 @@
 ---
 name: x-ads-tracking
-description: Check whether the X Pixel, the tag behind X Ads (Twitter Ads) conversion tracking, is set up in Google Tag Manager, name the proof that it fires, and stage the tag when the customer pastes X's code. Use when the user asks about the X Pixel, the Twitter pixel, X Ads or Twitter Ads conversion tracking, Events Manager, uwt.js, twq, X base code or event code, or whether their X tag fires.
+description: Check through AdCopilot whether the X Pixel, the tag behind X Ads (Twitter Ads) conversion tracking, is set up in Google Tag Manager, name the proof that it fires, and stage the tag when the customer pastes X's code. Use when the user asks about the X Pixel, the Twitter pixel, X Ads or Twitter Ads conversion tracking, X's Events Manager, uwt.js, twq, X base code or event code, or whether their X tag fires.
 ---
 
 # X Pixel check in Tag Manager
