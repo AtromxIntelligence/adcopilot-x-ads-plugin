@@ -108,6 +108,8 @@ After you sign in, ask in your own words. For example:
 Open an issue at https://github.com/AtromxIntelligence/adcopilot-x-ads-plugin/issues,
 or write to support@adcopilot.cloud.
 
+To report a security problem, write to support@adcopilot.cloud rather than opening a public issue.
+
 ## Version
 
 **0.1.2 (2026-11-05)**: changes nothing you use. The plugin folder now holds only the files Claude loads.

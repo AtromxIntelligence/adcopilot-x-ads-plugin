@@ -1,5 +1,4 @@
 ---
-name: setup
 description: Check the AdCopilot connector is signed in, say which Google products are connected for X Ads work (Tag Manager and Analytics), and say what this plugin does today.
 ---
 
