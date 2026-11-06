@@ -163,7 +163,7 @@ Staging a tag is a change, so it follows the rule at the end of this skill.
 - Tell the customer the tag fires wherever its trigger does. If the site asks
   visitors for consent before advertising tags, their consent setup decides, and
   AdCopilot does not read it.
-- Never publish, and never delete: there is no tool for either.
+- Never publish, and never delete: the connector has no Tag Manager tool for either.
 
 ## Conversion event setup, in X's steps
 

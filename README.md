@@ -78,7 +78,8 @@ Every figure it shows from Analytics is the tool's figure. A figure you give it 
 - Read your X ad account, or state an X click, impression or spend figure it was not
   given.
 - Publish Tag Manager. Staged tags wait for your own Submit and Publish.
-- Delete anything.
+- Delete anything. Its skills call no tool that deletes or removes, and the connector
+  has no tool that deletes in Tag Manager or Analytics.
 - Change anything without your explicit yes, after it has told you what the change
   is and how to undo it.
 - Set up X's server-side Conversion API, create or change a campaign on X, check your
