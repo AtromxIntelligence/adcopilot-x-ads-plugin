@@ -7,19 +7,20 @@ description: Plan an X Ads (Twitter Ads) campaign and draft promoted-post copy, 
 
 The customer wants a plan for an X Ads campaign, or copy for its posts. The plan
 and the copy are Claude's own work, written from what the customer tells you.
-AdCopilot reads no X data for this: it has no access to the customer's X ad
-account, and nothing here says how any X campaign performed.
+AdCopilot reads no X data for this skill, and nothing here says how any X campaign
+performed. If the customer has connected X and wants to see how their campaigns
+did, offer the `x-review` skill.
 
 ## Your first answer
 
 Open your first answer in this conversation with this, in these words, once. Do
 not repeat it in later answers.
 
-> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
+> Today this plugin reads the X ad accounts you connect (read only: campaigns, ad groups, promoted posts, funding sources and their results for the last 30 days), checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It changes nothing in your X ad account.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.2.0"` first,
 before any other tool, and read only what its saved `profile` says about the
 customer's business: what they sell, where, and to whom. Send `source` exactly as
 written. In a scheduled run (a Claude scheduled task or routine with nobody there
@@ -87,10 +88,16 @@ Give the plan as a short document: objective, conversion to count, audience (key
 accounts, interests), the post and headline variants with counts, the link with its
 UTM tags, the budget as the customer gave it, and what to look at in X's preview.
 
+## Side by side with X
+
+When you show a Google Analytics (GA4) figure for X traffic beside an X campaign, also show X's own figure of the same kind for that campaign (link clicks, Click Rate, CPLC, CPA), name each source, and never add the two into one total.
+
+This skill shows no Analytics figure itself. The `x-ads-traffic` skill reads Analytics and, when the customer has connected X, X's own figure beside it.
+
 ## What this does not do
 
-It creates nothing in X: AdCopilot cannot reach the customer's X ad account, so
-the customer builds the campaign in X's ads account from this plan, and X's own
+It creates nothing in X: the X connector only reads, so the customer builds the
+campaign in X's ads account from this plan, and X's own
 screens are the referee for every setting. Say that plainly once the plan is given.
 
 Every change is proposed first, with what it changes and how to undo it, and is applied only after the customer's explicit yes in this conversation. This skill makes no change anywhere, and deletes nothing.

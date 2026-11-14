@@ -9,7 +9,7 @@
     {
       "name": "adcopilot-x-ads",
       "source": "./",
-      "description": "X Pixel checks in Google Tag Manager, X traffic and conversions in Google Analytics (GA4), UTM checks, conversion setup guidance, campaign plans, post copy and budget pacing math. It does not read your X ad account.",
+      "description": "Reads your connected X ad accounts (read only) and audits them, checks your X Pixel in Google Tag Manager, reports X traffic and conversions in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does budget pacing math. It changes nothing in your X ad account.",
       "category": "Marketing"
     }
   ]

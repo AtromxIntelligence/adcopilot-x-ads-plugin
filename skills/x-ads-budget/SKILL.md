@@ -7,15 +7,17 @@ description: Work out budget pacing for an X Ads (Twitter Ads) campaign from the
 
 The customer wants to know whether an X Ads campaign is on pace for its budget. The
 math is Claude's own, done on the figures the customer gives you. AdCopilot reads no
-X data for this: it has no access to the customer's X ad account, and this skill calls
-no AdCopilot tool at all.
+X data for this skill, and this skill calls no AdCopilot tool at all. If the customer
+has connected X to AdCopilot, offer the `x-review` skill first: its budget pacing
+reads the spend from X itself, so nothing has to be typed in. Otherwise carry on
+here.
 
 ## Your first answer
 
 Open your first answer in this conversation with this, in these words, once. Do
 not repeat it in later answers.
 
-> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
+> Today this plugin reads the X ad accounts you connect (read only: campaigns, ad groups, promoted posts, funding sources and their results for the last 30 days), checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It changes nothing in your X ad account.
 
 ## Ask for the figures
 
@@ -68,6 +70,12 @@ the week, with how long a campaign has run and with its end date. Say so beside 
 projection. X's own reporting is the referee for what was spent. The daily amount
 that lands on budget is the customer's to set in X's ads account, and this plugin
 cannot set it.
+
+## Side by side with X
+
+When you show a Google Analytics (GA4) figure for X traffic beside an X campaign, also show X's own figure of the same kind for that campaign (link clicks, Click Rate, CPLC, CPA), name each source, and never add the two into one total.
+
+This skill shows no Analytics figure itself. The `x-ads-traffic` skill reads Analytics and, when the customer has connected X, X's own figure beside it.
 
 ## End
 

@@ -1,7 +1,7 @@
 {
   "name": "adcopilot-x-ads",
-  "version": "0.1.2",
-  "description": "X Ads (Twitter Ads) help in your AI client, through AdCopilot. Today it checks your X Pixel in Google Tag Manager, reports X traffic and conversions in Google Analytics (GA4) by source, medium and campaign, finds UTM mistakes, guides conversion setup, plans campaigns, drafts promoted-post copy and does the budget pacing math. It does not read your X ad account. Every change is proposed first and made only on your yes. Made by Atromx Intelligence, not by X.",
+  "version": "0.2.0",
+  "description": "X Ads (Twitter Ads) help in your AI client, through AdCopilot. Today it reads the X ad accounts you connect, read only (campaigns, ad groups, promoted posts, funding and results for the last 30 days), audits them and checks pacing, bids and wasted spend from those results, checks your X Pixel in Google Tag Manager, reports X traffic in Google Analytics (GA4), finds UTM mistakes, plans campaigns and drafts promoted-post copy. It changes nothing in your X ad account. Every change is proposed first and made only on your yes. Made by Atromx Intelligence, not by X.",
   "author": {
     "name": "Atromx Intelligence",
     "url": "https://adcopilot.cloud"
