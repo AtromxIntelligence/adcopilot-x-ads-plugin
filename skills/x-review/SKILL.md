@@ -6,7 +6,8 @@ description: Review the customer's connected X Ads (Twitter Ads) accounts throug
 # X Ads review
 
 The customer wants to know how their X Ads are doing. This skill reads their X ad
-accounts through the X connector at `https://mcp.adcopilot.cloud/x/mcp`, which is
+accounts through the X connector, X Ads by AdCopilot, at
+`https://mcp.adcopilot.cloud/x/mcp`, which is
 separate from the AdCopilot connector for Google and has its own sign-in. It only
 reads. Nothing here changes a campaign, budget, bid or status, and you never say
 that a change was made.

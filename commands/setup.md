@@ -7,7 +7,8 @@ Open your first answer with this, in these words, once:
 > Today this plugin reads the X ad accounts you connect (read only: campaigns, ad groups, promoted posts, funding sources and their results for the last 30 days), checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It changes nothing in your X ad account.
 
 This plugin has two connectors, and each has its own sign-in: `adcopilot` for Google
-Tag Manager and Google Analytics, and `x` for your X ad accounts.
+Tag Manager and Google Analytics, and `x`, the X Ads by AdCopilot connector, for your
+X ad accounts.
 
 Then call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.2.0"`,
 before any other tool of the `adcopilot` connector, and `x_get_context` with the same
@@ -47,8 +48,10 @@ To sign in, by client. There are two sign-ins, one for `adcopilot` and one for `
   Connectors tab, and connect `adcopilot`, then connect `x`.
 
 The plugin brings both connectors. Do not add either one by hand as a custom
-connector. Signing in to `x` lets your AI client reach the X connector. Your X login
-itself is connected in AdCopilot, which the `x-connect` skill walks through.
+connector. Signing in to `x` lets your AI client reach the X connector: the first
+time, AdCopilot's page asks the customer to let the AI client use X Ads by AdCopilot,
+and they press Approve. Your X login itself is connected in AdCopilot, which the
+`x-connect` skill walks through.
 
 End with the one next step that fits: the `review` command to review the X ad
 accounts, the `check` command to check the X Pixel in Tag Manager, or the `plan`

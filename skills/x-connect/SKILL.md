@@ -6,9 +6,10 @@ description: Connect the customer's X login to AdCopilot for X Ads (Twitter Ads)
 # Connect X to AdCopilot
 
 The customer wants AdCopilot to read their X ad accounts, or wants to know why it
-cannot. The X connector at `https://mcp.adcopilot.cloud/x/mcp` is not the AdCopilot
-connector for Google. It has its own sign-in, its own front door and its own tools,
-and the customer's X login is connected in AdCopilot, not in this AI client.
+cannot. The X connector, X Ads by AdCopilot (`x`, at
+`https://mcp.adcopilot.cloud/x/mcp`), is not the AdCopilot connector for Google. It
+has its own sign-in, its own front door and its own tools, and the customer's X login
+is connected in AdCopilot, on the dashboard under Platforms, not in this AI client.
 
 ## Your first answer
 
@@ -40,8 +41,9 @@ rewrite, shorten or add to a link or a sentence it gives you.
   sees their X password. When they are back, call `x_get_context` again.
 - `reconnect`: give `connect_url` and say `reconnect_reason` in the server's words.
   `needs_reconnect` is true.
-- `upgrade_plan`: pass on `plan_line` exactly as sent, word for word, and add
-  nothing of your own: no price, no plan name, no rule.
+- `not_on_plan`: X Ads is not available on this workspace's current plan. Say so by
+  passing on `plan_line` exactly as sent, word for word, add nothing of your own (no
+  price, no plan name, no rule), and call no other X tool.
 - `switch_on_accounts`: X is connected, but no ad account is switched on yet. The
   workspace owner switches ad accounts on in AdCopilot at
   `https://app.adcopilot.cloud`. Say which accounts `accounts` lists, by name.
@@ -63,22 +65,29 @@ lists them too. Say the ids without names only if both calls give none.
 
 ## What connecting does
 
-Say it in plain words when the customer asks, and nothing beyond it.
+When the customer asks, say it in these words, which are the lines AdCopilot's
+connect page shows before X's own screen, and nothing beyond them.
 
-- AdCopilot reads the customer's X ad accounts, campaigns, ad groups, promoted
-  posts, funding sources and their results when they ask. It changes nothing in X.
+- AdCopilot reads your X ad accounts, campaigns, ad groups, promoted posts, funding
+  sources and their results when you ask. It changes nothing in X.
 - It never reads post text or media, other people's data, locations, targeting or
   audiences.
-- It keeps the X sign-in and the ad accounts it reaches, with the customer's role
-  on each, encrypted, and a 90-day log of which tool ran, with no X data in it.
+- When you ask your AI assistant, such as Claude or ChatGPT, AdCopilot passes these
+  results to it. It is made by a separate company: its terms and your settings there
+  decide how long it keeps them and whether it trains on them, and AdCopilot cannot
+  see or delete them there. X does not allow its data to be used to train AI models,
+  so before you ask your assistant about X Ads, turn off any setting that lets it
+  train on your conversations.
+- AdCopilot keeps your X sign-in and the ad accounts it reaches with your role on
+  each, encrypted, and a 90-day log of which tool ran, with no campaign data.
   Results are held encrypted for up to 15 minutes, then deleted.
-- Disconnecting in AdCopilot deletes what AdCopilot holds from X at once. If the
-  customer instead takes AdCopilot's access away in their X settings, AdCopilot sees
-  it at its next check, within about a week, and deletes what it holds 7 days after
-  that. A connection nobody has used for 80 days is deleted 7 days later.
-- Connecting links the customer's X login to their AdCopilot login in this
-  workspace. AdCopilot keeps only a coded reference to the X account, never the
-  handle.
+- It deletes your X sign-in at once when you disconnect X Ads or ask us to, within
+  10 days if your seat is removed or your plan stops including X Ads, within 3 weeks
+  if the connection stops working and you do not reconnect it, and within 90 days of
+  its last use if you do not use it for 80 days. If this X login is also connected in
+  another of your AdCopilot workspaces, it stays connected there.
+- Connecting links your X login to your AdCopilot login in this workspace.
+  AdCopilot keeps only a coded reference to your X account, never your handle.
 
 ## What never to do
 

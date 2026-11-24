@@ -4,8 +4,8 @@ X Ads (Twitter Ads) help in your AI client, through AdCopilot. This plugin gives
 Claude the steps to read the X ad accounts you connect, to review them, to check your
 X Pixel in Google Tag Manager, to read X traffic and conversions in Google Analytics
 (GA4), and to plan and write for X Ads. It works through two connectors: the AdCopilot
-connector, which reaches your Google products, and an X connector, which reads your X
-ad accounts.
+connector (`adcopilot`), which reaches your Google products, and the X Ads by AdCopilot
+connector (`x`), which only reads your X ad accounts.
 
 Made by Atromx Intelligence (https://adcopilot.cloud). Not affiliated with or endorsed by X Corp. X and Twitter are trademarks of X Corp. Not related to other products named AdCopilot.
 
@@ -55,12 +55,13 @@ targeting, other people's data or the description of a funding source. X results
 cover the last 30 days. Spend for the last 3 days is X's estimate and can change for
 up to 14 days.
 
-## The connector
+## The connectors
 
-The plugin is MIT licensed. The AdCopilot connector it brings is a hosted service, so you need an AdCopilot account to use it.
+The plugin is MIT licensed. The two connectors it brings, `adcopilot` and `x`, are
+hosted services, so you need an AdCopilot account to use them.
 
-Reading X ad accounts is not part of the Free plan. The X connector's own answer
-says what your workspace's plan includes.
+X Ads is not part of Free. The X connector's own answer says what your workspace's
+plan includes.
 
 ## Install
 
@@ -72,11 +73,15 @@ Connect `adcopilot` and `x`, and sign in to each.
 then `/plugin install adcopilot-x-ads@adcopilot-x-ads-plugin`, then `/mcp` to sign in
 to `adcopilot` and to `x`, which Claude Code shows as `plugin:adcopilot-x-ads:x`.
 
+The first time you sign in to `x`, AdCopilot's page asks you to let your AI client use
+X Ads by AdCopilot. Press **Approve**.
+
 **Then, once,** connect your Google products in AdCopilot at https://app.adcopilot.cloud.
 For this plugin that is Google Tag Manager and Google Analytics. Which containers and
 properties the plugin can see depends on the Google login you connect. Then connect
-your X login: the `setup` command gives you the link. Which X ad accounts the plugin
-can read depends on your role on each one at X.
+your X login on the AdCopilot dashboard, under Platforms: the `setup` command gives
+you the link. Which X ad accounts the plugin can read depends on your role on each
+one at X, and AdCopilot reads only the ones switched on there.
 
 ## Already use another AdCopilot plugin?
 
@@ -133,14 +138,27 @@ After you sign in, ask in your own words. For example:
 
 The plugin is instructions only: it runs no code and sends nothing anywhere itself. The AdCopilot connector at mcp.adcopilot.cloud reads and, on your yes, writes your Google products through Google's APIs with your Google sign-in.
 
-The X connector at mcp.adcopilot.cloud/x/mcp reads your X ad accounts with your own X
-sign-in, and changes nothing in X. AdCopilot keeps your X sign-in and the ad accounts
-it reaches, encrypted, and a 90-day log of which tool ran, with no X data in it.
-Results are held encrypted for up to 15 minutes, then deleted. Disconnecting X in
-AdCopilot deletes what AdCopilot holds from X at once. AdCopilot is AI-powered: your
-AI assistant is made by a separate company, and its terms and your settings there
-decide how long it keeps what it is sent. What it says from X results may be wrong,
-so check it before you act on it. AdCopilot does not train AI models on X data.
+The X Ads by AdCopilot connector at mcp.adcopilot.cloud/x/mcp reads your X ad accounts
+with your own X sign-in, and changes nothing in X. AdCopilot keeps your X sign-in and
+the ad accounts it reaches with your role on each, encrypted, and a 90-day log of
+which tool ran, with no campaign data. Results are held encrypted for up to 15
+minutes, then deleted. AdCopilot deletes your X sign-in at once when you disconnect
+X Ads or ask us to, within 10 days if your seat is removed or your plan stops
+including X Ads, within 3 weeks if the connection stops working and you do not
+reconnect it, and within 90 days of its last use if you do not use it for 80 days. If
+this X login is also connected in another of your AdCopilot workspaces, it stays
+connected there.
+
+When you ask your AI assistant, such as Claude or ChatGPT, AdCopilot passes these
+results to it. It is made by a separate company: its terms and your settings there
+decide how long it keeps them and whether it trains on them, and AdCopilot cannot see
+or delete them there. X does not allow its data to be used to train AI models, so
+before you ask your assistant about X Ads, turn off any setting that lets it train on
+your conversations. AdCopilot is AI-powered: what your assistant says from X results
+is AI-generated and may be wrong, so check it before you act on it. AdCopilot does
+not train AI models on X data. How AdCopilot handles your X Ads data:
+https://adcopilot.cloud/privacy#x-ads. How to connect X Ads and what each X tool
+reads: https://adcopilot.cloud/docs/connect/x-ads/.
 
 The plugin itself never contacts X. A tag you publish that loads X's pixel script from
 static.ads-twitter.com does so from your own site, in your visitors' browsers, because
@@ -157,7 +175,7 @@ To report a security problem, write to support@adcopilot.cloud rather than openi
 
 ## Version
 
-**0.2.0 (2026-11-15, written against AdCopilot PUSH-RELEASE, live since PUSH-DATE)**: adds the `x` connector at https://mcp.adcopilot.cloud/x/mcp beside `adcopilot`, with seven reads and five review tools for your X ad accounts, all read only. New skills `x-connect` and `x-review`, a new `review` command, and `setup` covers both sign-ins. The four 0.1 skills show X's own figure beside Analytics figures for X traffic, each source named, never added together. Results by day and by placement.
+**0.2.0 (2026-11-25, written against AdCopilot v2.46.45, live since 2026-11-25)**: adds the X Ads by AdCopilot connector (`x`, at https://mcp.adcopilot.cloud/x/mcp) beside `adcopilot`, with seven reads and five review tools for your X ad accounts, all read only. New skills `x-connect` and `x-review`, a new `review` command, and `setup` covers both sign-ins. The four 0.1 skills show X's own figure beside Analytics figures for X traffic, each source named, never added together. Results by day and by placement.
 
 **0.1.2 (2026-11-05)**: text only. The plugin folder now holds only the files Claude loads. The skills take what AdCopilot suggests doing next as information and keep to their own steps, each skill's description names X Ads and AdCopilot, and this README says where to report a security problem.
 
