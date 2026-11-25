@@ -51,9 +51,9 @@ Every skill and command opens with this, once:
 > Today this plugin reads the X ad accounts you connect (read only: campaigns, ad groups, promoted posts, funding sources and their results for the last 30 days), checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It changes nothing in your X ad account.
 
 From X it never reads post text or media, audiences, demographics, locations,
-targeting, other people's data or the description of a funding source. X results
-cover the last 30 days. Spend for the last 3 days is X's estimate and can change for
-up to 14 days.
+targeting or other people's data, and it never shows or keeps a funding source's
+description. X results cover the last 30 days. Spend for the last 3 days is X's
+estimate and can change for up to 14 days.
 
 ## The connectors
 
