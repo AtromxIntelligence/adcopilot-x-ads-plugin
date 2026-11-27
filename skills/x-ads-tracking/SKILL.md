@@ -8,20 +8,20 @@ description: Check through AdCopilot whether the X Pixel, the tag behind X Ads (
 The customer wants to know whether their X Ads tracking is in place on their site.
 This skill reads their Google Tag Manager through the AdCopilot connector at
 `https://mcp.adcopilot.cloud/mcp` and, on their yes, stages tags there. AdCopilot
-has no access to the customer's X ad account and reads no X figure; the pixel is
-checked from the tags in Tag Manager, and what only X's own screens can show is
-named below.
+reads no X figure: the pixel is checked from the tags in Tag Manager, and what only
+X's own screens can show is named below. For how the campaigns did, the `x-review`
+skill reads the customer's connected X ad accounts.
 
 ## Your first answer
 
 Open your first answer in this conversation with this, in these words, once. Do
 not repeat it in later answers.
 
-> Today this plugin checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It does not read your X ad account.
+> Today this plugin reads the X ad accounts you connect (read only: campaigns, ad groups, promoted posts, funding sources and their results for the last 30 days), checks your X Pixel and tags in Google Tag Manager, reads X traffic and key events in Google Analytics (GA4), checks UTM tags, guides conversion setup, plans campaigns, drafts post copy and does the budget pacing math. It changes nothing in your X ad account.
 
 ## Start
 
-Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.1.2"` first,
+Call `get_org_context` with `source: "claude-plugin/adcopilot-x-ads/0.2.0"` first,
 before any other tool. Send `source` exactly as written. In a scheduled run (a
 Claude scheduled task or routine with nobody there to answer; this plugin
 schedules nothing, but one may exist) send `source: "claude-scheduled"` instead,
@@ -180,6 +180,12 @@ X recommends the `conversion_id` parameter on both so X can match them.
 Whether to pass an email address or a phone number in event code is the
 customer's privacy decision; X's page describes it, and you propose none. Where X's
 screen differs from this, X's screen is the referee.
+
+## Side by side with X
+
+When you show a Google Analytics (GA4) figure for X traffic beside an X campaign, also show X's own figure of the same kind for that campaign (link clicks, Click Rate, CPLC, CPA), name each source, and never add the two into one total.
+
+This skill shows no Analytics figure itself. The `x-ads-traffic` skill reads Analytics and, when the customer has connected X, X's own figure beside it.
 
 ## End
 
